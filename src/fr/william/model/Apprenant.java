@@ -1,5 +1,7 @@
 package fr.william.model;
 
+import java.util.Objects;
+
 public class Apprenant {
 	
 	private String prenom;
@@ -16,6 +18,23 @@ public class Apprenant {
 		this(null, null, 0); //le mot clé "this" appel un autre constructeur
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, nom, prenom);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Apprenant other = (Apprenant) obj;
+		return age == other.age && Objects.equals(nom, other.nom) && Objects.equals(prenom, other.prenom);
+	}
+
 	@Override
 	public String toString() {
 		return "Apprenant [prenom=" + prenom + ", nom=" + nom + ", age=" + age + "]";
