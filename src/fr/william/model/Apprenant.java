@@ -16,6 +16,11 @@ public class Apprenant {
 		this(null, null, 0); //le mot clé "this" appel un autre constructeur
 	}
 	
+	@Override
+	public String toString() {
+		return "Apprenant [prenom=" + prenom + ", nom=" + nom + ", age=" + age + "]";
+	}
+
 	public String getPrenom() {
 		return this.prenom;
 	}
